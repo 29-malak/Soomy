@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#ffe5f0">
+
+    <title>A Little Surprise for Soomy 💗</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="surprise-page">
+
+        <!-- Animated Background -->
+        <div class="background-decor" aria-hidden="true">
+
+            <div class="floating-hearts"></div>
+
+            <div class="sparkles"></div>
+
+            <div class="background-glow"></div>
+
+        </div>
+
+
+        <!-- Main Scene -->
+        <section class="main-scene">
+
+            <!-- Top Decorative Text -->
+            <header class="page-header">
+                <p>A little surprise made with love</p>
+                <span class="header-heart">♥</span>
+            </header>
+
+
+            <!-- Character and Message Area -->
+            <div class="character-scene">
+
+                <!-- Bubbles Character -->
+                <div class="character-container">
+
+                    <button
+                        class="bubbles-button"
+                        id="bubblesButton"
+                        aria-label="Tap Bubbles"
+                        type="button"
+                    >
+
+                        <img
+                            src="assets/bubbles-idle.png"
+                            alt="Bubbles"
+                            class="bubbles-character"
+                            id="bubblesCharacter"
+                        >
+
+                    </button>
+
+                    <!-- Character Decorations -->
+                    <div class="character-sparkle sparkle-one">✦</div>
+                    <div class="character-sparkle sparkle-two">♡</div>
+
+                </div>
+
+
+                <!-- Speech Bubble -->
+                <div class="message-container">
+
+                    <div
+                        class="speech-bubble"
+                        id="speechBubble"
+                        aria-live="polite"
+                    >
+
+                        <p id="messageText">
+                            Tap Bubbles to start your surprise 💗
+                        </p>
+
+                    </div>
+
+                    <div class="message-hearts" aria-hidden="true">
+                        ♥
+                        <span>♡</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Soup Scene -->
+            <div
+                class="soup-scene"
+                id="soupScene"
+                aria-hidden="true"
+            >
+
+                <div class="soup-steam">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="soup-bowl">
+
+                    <div class="soup-surface">
+
+                        <span class="soup-vegetable carrot"></span>
+                        <span class="soup-vegetable pea"></span>
+                        <span class="soup-vegetable tomato"></span>
+                        <span class="soup-vegetable corn"></span>
+                        <span class="soup-vegetable pea-two"></span>
+
+                    </div>
+
+                    <span class="bowl-heart">♥</span>
+
+                </div>
+
+                <div class="table-cloth">
+
+                    <div class="table-pattern"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Progress Section -->
+            <footer class="interaction-footer">
+
+                <p id="tapHint">
+                    Tap Bubbles to begin ✨
+                </p>
+
+                <div class="progress-dots">
+
+                    <span class="progress-dot is-active" id="dotOne">
+                        ♥
+                    </span>
+
+                    <span class="progress-dot" id="dotTwo">
+                        ♥
+                    </span>
+
+                    <span class="progress-dot" id="dotThree">
+                        ♥
+                    </span>
+
+                </div>
+
+            </footer>
+
+
+            <!-- Final Decorative Hearts -->
+            <div class="final-hearts" aria-hidden="true">
+                <span>♡</span>
+                <span>♥</span>
+                <span>♡</span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

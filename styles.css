@@ -1,0 +1,1019 @@
+
+/* ==========================================
+   SOOMY SURPRISE
+   Pastel Pink Cartoon World
+========================================== */
+
+
+/* 1. ROOT VARIABLES */
+
+:root {
+    --pink: #f58fba;
+    --dark-pink: #df5796;
+    --light-pink: #ffe2ef;
+    --soft-pink: #fff2f8;
+    --white: #ffffff;
+    --purple: #dca6ec;
+    --text: #713d5b;
+    --shadow: 0 10px 35px rgba(220, 105, 157, 0.15);
+}
+
+
+/* 2. RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffffff 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #ffd5e8 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #fff7fb,
+            #ffe4f0,
+            #fff0f7
+        );
+}
+
+
+/* 3. MAIN PAGE */
+
+.surprise-page {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    overflow: hidden;
+}
+
+
+/* 4. BACKGROUND DECORATIONS */
+
+.background-decor {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.background-glow {
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    top: 25%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    filter: blur(70px);
+}
+
+
+/* Floating Hearts */
+
+.floating-hearts,
+.sparkles {
+    position: absolute;
+    inset: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+
+    color: #f58fba;
+
+    opacity: 0;
+
+    animation:
+        heart-float var(--duration, 8s) linear infinite;
+
+    animation-delay: var(--delay, 0s);
+}
+
+.heart::before {
+    content: "♥";
+
+    display: block;
+
+    font-size: var(--size, 20px);
+
+    animation: heart-beat 1.3s ease-in-out infinite;
+}
+
+
+/* Sparkles */
+
+.sparkle {
+    position: absolute;
+
+    color: white;
+
+    font-size: var(--sparkle-size, 18px);
+
+    animation: sparkle-twinkle 2.5s ease-in-out infinite;
+
+    animation-delay: var(--delay, 0s);
+}
+
+
+/* 5. MAIN SCENE */
+
+.main-scene {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 950px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* 6. HEADER */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--dark-pink);
+
+    font-size: clamp(17px, 3vw, 23px);
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+}
+
+.header-heart {
+    font-size: 22px;
+
+    animation: heart-beat 1.2s infinite;
+}
+
+
+/* 7. CHARACTER SCENE */
+
+.character-scene {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(15px, 4vw, 45px);
+}
+
+
+/* Character Container */
+
+.character-container {
+    position: relative;
+
+    width: min(45%, 350px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Bubbles Button */
+
+.bubbles-button {
+    position: relative;
+
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    animation: bubbles-float 3s ease-in-out infinite;
+
+    transition: filter 0.3s ease;
+}
+
+.bubbles-button:focus-visible {
+    outline: 3px solid var(--dark-pink);
+    outline-offset: 8px;
+    border-radius: 40%;
+}
+
+.bubbles-button:active {
+    transform: scale(0.96);
+}
+
+
+/* Character Image */
+
+.bubbles-character {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
+
+    filter:
+        drop-shadow(
+            0 12px 12px rgba(190, 95, 145, 0.15)
+        );
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Character Sparkles */
+
+.character-sparkle {
+    position: absolute;
+
+    color: #f58fba;
+
+    pointer-events: none;
+
+    animation: sparkle-twinkle 2s infinite;
+}
+
+.sparkle-one {
+    top: 12%;
+    right: 0;
+
+    font-size: 32px;
+}
+
+.sparkle-two {
+    bottom: 25%;
+    left: -5%;
+
+    font-size: 30px;
+
+    animation-delay: 0.7s;
+}
+
+
+/* 8. SPEECH BUBBLE */
+
+.message-container {
+    position: relative;
+
+    width: min(50%, 440px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.speech-bubble {
+    position: relative;
+
+    width: 100%;
+    min-height: 160px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 4px solid #f49bc2;
+
+    border-radius: 45px;
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+
+    opacity: 1;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* Speech Bubble Tail */
+
+.speech-bubble::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -19px;
+    left: 15%;
+
+    width: 32px;
+    height: 32px;
+
+    background: white;
+
+    border-right: 4px solid #f49bc2;
+    border-bottom: 4px solid #f49bc2;
+
+    transform: rotate(45deg);
+}
+
+
+/* Message Text */
+
+.speech-bubble p {
+    position: relative;
+    z-index: 1;
+
+    font-size: clamp(19px, 3vw, 27px);
+
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    color: #a83f78;
+}
+
+
+/* Message Animation */
+
+.speech-bubble.is-visible {
+    animation: message-pop 0.4s ease;
+}
+
+.message-hearts {
+    position: absolute;
+
+    top: -25px;
+    right: 10%;
+
+    color: #f58fba;
+
+    font-size: 28px;
+
+    animation: heart-beat 1.4s infinite;
+}
+
+.message-hearts span {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    font-size: 20px;
+}
+
+
+/* 9. SOUP SCENE */
+
+.soup-scene {
+    position: relative;
+
+    width: 240px;
+    height: 145px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    margin-top: -15px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(30px) scale(0.8);
+
+    pointer-events: none;
+}
+
+.soup-scene.is-visible {
+    visibility: visible;
+
+    opacity: 1;
+
+    animation:
+        soup-appear 0.7s ease forwards,
+        soup-float 2.5s ease-in-out 0.7s infinite;
+}
+
+
+/* Soup Bowl */
+
+.soup-bowl {
+    position: relative;
+    z-index: 2;
+
+    width: 130px;
+    height: 75px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #ffb7d5,
+        #f17eaf
+    );
+
+    border: 5px solid #df679c;
+
+    border-top: none;
+
+    border-radius: 8px 8px 55px 55px;
+
+    box-shadow: 0 8px 15px rgba(200, 90, 140, 0.2);
+}
+
+
+/* Soup Surface */
+
+.soup-surface {
+    position: absolute;
+
+    top: 0;
+    left: -5px;
+
+    width: calc(100% + 10px);
+    height: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    border: 5px solid #e879a6;
+
+    border-radius: 50%;
+
+    background: #ffedab;
+}
+
+
+/* Vegetables */
+
+.soup-vegetable {
+    width: 13px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: orange;
+}
+
+.carrot {
+    background: #f49b39;
+}
+
+.pea {
+    background: #72bb6a;
+}
+
+.tomato {
+    background: #ec6b62;
+}
+
+.corn {
+    background: #f5d45f;
+}
+
+.pea-two {
+    background: #79c77a;
+}
+
+
+/* Bowl Heart */
+
+.bowl-heart {
+    position: absolute;
+
+    top: 28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #fff1f7;
+
+    font-size: 22px;
+}
+
+
+/* Steam */
+
+.soup-steam {
+    display: flex;
+
+    gap: 15px;
+
+    height: 40px;
+
+    align-items: flex-end;
+}
+
+.soup-steam span {
+    width: 9px;
+    height: 27px;
+
+    border-left: 3px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 50%;
+
+    animation: steam-rise 1.5s infinite;
+}
+
+.soup-steam span:nth-child(2) {
+    height: 35px;
+    animation-delay: 0.3s;
+}
+
+.soup-steam span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+
+/* Table Cloth */
+
+.table-cloth {
+    position: absolute;
+
+    bottom: -5px;
+
+    width: 220px;
+    height: 35px;
+
+    background: #f7b6d1;
+
+    border-radius: 50% 50% 10px 10px;
+
+    box-shadow: 0 8px 15px rgba(210, 100, 150, 0.15);
+}
+
+.table-pattern {
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    opacity: 0.5;
+
+    background-image:
+        linear-gradient(45deg, white 25%, transparent 25%),
+        linear-gradient(-45deg, white 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, white 75%),
+        linear-gradient(-45deg, transparent 75%, white 75%);
+
+    background-size: 18px 18px;
+}
+
+
+/* 10. FOOTER AND PROGRESS */
+
+.interaction-footer {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.tap-hint {
+    color: #ca6795;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.progress-dots {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.progress-dot {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 12px;
+
+    background: #f5c3d9;
+
+    transition: all 0.3s ease;
+}
+
+.progress-dot.is-active {
+    width: 38px;
+    height: 38px;
+
+    background: #ed70a9;
+
+    box-shadow: 0 0 15px rgba(237, 112, 169, 0.4);
+
+    transform: scale(1.1);
+}
+
+.progress-dot.is-complete {
+    background: #e875a8;
+}
+
+
+/* 11. FINAL HEART DECORATIONS */
+
+.final-hearts {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.final-hearts span {
+    position: absolute;
+
+    color: #f58fba;
+
+    opacity: 0;
+
+    font-size: 35px;
+}
+
+.final-hearts span:nth-child(1) {
+    top: 15%;
+    left: 5%;
+}
+
+.final-hearts span:nth-child(2) {
+    top: 35%;
+    right: 3%;
+}
+
+.final-hearts span:nth-child(3) {
+    bottom: 15%;
+    left: 10%;
+}
+
+
+/* 12. ANIMATIONS */
+
+@keyframes bubbles-float {
+    0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1deg);
+    }
+}
+
+
+@keyframes heart-float {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(
+            var(--drift, 20px),
+            -110vh
+        );
+    }
+}
+
+
+@keyframes heart-beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes sparkle-twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(20deg);
+    }
+}
+
+
+@keyframes message-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(12px);
+    }
+
+    70% {
+        transform: scale(1.04) translateY(-3px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+@keyframes soup-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.7);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes soup-float {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -7px;
+    }
+}
+
+
+@keyframes steam-rise {
+    0% {
+        opacity: 0;
+        transform: translateY(8px) scaleY(0.7);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-15px) scaleY(1.1);
+    }
+}
+
+
+/* 13. CHARACTER TAP ANIMATION */
+
+.bubbles-button.is-tapped {
+    animation: bubbles-tap 0.45s ease;
+}
+
+@keyframes bubbles-tap {
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(0.93) rotate(-4deg);
+    }
+
+    70% {
+        transform: scale(1.06) rotate(3deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* 14. FINAL SCENE */
+
+.bubbles-button.final-pose {
+    animation: bubbles-float 2.5s ease-in-out infinite;
+}
+
+.bubbles-button.final-pose .bubbles-character {
+    filter:
+        drop-shadow(
+            0 15px 20px rgba(236, 111, 168, 0.35)
+        );
+}
+
+
+/* 15. TABLET RESPONSIVENESS */
+
+@media (max-width: 700px) {
+
+    .main-scene {
+        gap: 30px;
+    }
+
+    .character-scene {
+        gap: 12px;
+    }
+
+    .character-container {
+        width: 45%;
+    }
+
+    .message-container {
+        width: 55%;
+    }
+
+    .speech-bubble {
+        min-height: 130px;
+
+        padding: 20px;
+
+        border-radius: 30px;
+    }
+
+}
+
+
+/* 16. MOBILE RESPONSIVENESS */
+
+@media (max-width: 520px) {
+
+    .surprise-page {
+        padding: 25px 16px;
+    }
+
+    .main-scene {
+        gap: 25px;
+    }
+
+    .page-header {
+        font-size: 17px;
+    }
+
+    .character-scene {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .character-container {
+        width: min(75%, 280px);
+    }
+
+    .message-container {
+        width: 95%;
+        max-width: 370px;
+    }
+
+    .speech-bubble {
+        min-height: 110px;
+
+        padding: 20px;
+
+        border-radius: 28px;
+
+        border-width: 3px;
+    }
+
+    .speech-bubble::after {
+        left: 50%;
+        bottom: -14px;
+
+        width: 23px;
+        height: 23px;
+
+        border-width: 3px;
+    }
+
+    .speech-bubble p {
+        font-size: 19px;
+    }
+
+    .soup-scene {
+        transform: scale(0.9);
+        margin-top: -5px;
+    }
+
+    .tap-hint {
+        font-size: 14px;
+    }
+
+}
+
+
+/* 17. SMALL MOBILE */
+
+@media (max-width: 360px) {
+
+    .character-container {
+        width: 70%;
+    }
+
+    .speech-bubble {
+        min-height: 95px;
+        padding: 16px;
+    }
+
+    .speech-bubble p {
+        font-size: 17px;
+    }
+
+    .main-scene {
+        gap: 20px;
+    }
+
+}
+
+
+/* 18. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
